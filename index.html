@@ -1,14 +1,181 @@
+<!DOCTYPE HTML>
+
 <html>
-    <head>
-        <link rel="stylesheet" href="styles.css">
-        <script src="js/script.js"></script>
-    </head>
-    <body>
-        <div>
-            <h2>Hello World!</h2>
-            This is my website!
-        </div>
-        
-        <button></button>
-    </body>
+	<head>
+		<title>Bryan Quinn</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="keywords"
+         content="Software Engineer Engineering Coding Developer Programmer
+				 Bryan Quinn RIT"/>
+	 <meta name="description"
+        content="A personal for Bryan Quinn, a Software Engineering major at the
+				Rochester Institute of Technology, interested in software engineering,
+				computing security, and server-side technologies."/>
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+	</head>
+	<body>
+    <div class="nav"><ul class="topnav" id="myTopnav">
+        <li><a href="#header">Home</a></li>
+        <li><a href="#one">Introduction</a></li>
+        <li><a href="#two">More About Me</a></li>
+        <li><a href="#three">Projects</a></li>
+        <li><a href="#four">Resumé</a></li>
+        <li><a href="#footer">Connect With Me</a></li>
+        <li class="icon">
+            <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+            <script>function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }</script>
+        </li>
+    </ul></div>
+
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+					<span class="icon major fa-cloud"></span>
+					<h1>Hello, I'm <strong>Bryan Quinn</strong>, an<br />
+						 aspiring Software Engineer.</h1>
+					<p><br />
+					</p>
+					<ul class="actions">
+						<li><a href="#one" class="button scrolly">Discover</a></li>
+					</ul>
+				</div>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="main style1">
+				<div class="container">
+					<div class="row 150%">
+						<div class="6u 12u$(medium)">
+							<header class="major">
+								<h2>I am a Software Engineering major at the Rochester Institute of Technology </h2>
+							</header>
+							<p>My interests include software engineering, computing security, and server-side technologies.</p>
+						</div>
+						<div class="6u$ 12u$(medium) important(medium)">
+							<span class="image profile"><img src="images/pic01.jpg" alt="" /></span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="main style2">
+				<div class="container">
+
+					<div class="row 150%">
+						<div class="6u 12u$(medium)">
+							<ul class="major-icons">
+								<li><span class="icon style1 major fa-code"></span></li>
+								<li><span class="icon style2 major fa-bolt"></span></li>
+								<li><span class="icon style3 major fa-camera-retro"></span></li>
+								<li><span class="icon style4 major fa-cog"></span></li>
+								<li><span class="icon style5 major fa-desktop"></span></li>
+								<li><span class="icon style6 major fa-calendar"></span></li>
+							</ul>
+						</div>
+						<div class="6u$ 12u$(medium)">
+							<header class="major">
+								<h2>More About Me<br />
+								</h2>
+							</header>
+							<p>In 8th grade I started my own business soldering wires onto Xbox controllers. By forwarding the electrical signals from the LED on the controller to the trigger, you could shoot faster than any other player. This outside thinking is how I often like to approach problems.</p>
+							<p>I have always been a fan of technology and the fascinating components that make up the products that we use ever day. While most people like to spend their free time playing video games or browsing facebook, I prefer to spend my time learning about new technologies and how the world works. Taking apart and building things is my passion.</p>
+							<p>I love programming because of the vast opportunities that it entails. Ever since I have heard about the innovative culture of Silicon Valley, I have wanted to become an engineer there. This goal is what drives me to be the best that I can be everyday.</p>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="main style1 special">
+				<div class="container">
+					<header class="major">
+						<h2>Projects</h2>
+					</header>
+					<p>Here are three of my personal projects.</p>
+					<div class="row 150%">
+						<div class="4u 12u$(medium)">
+							<span class="image fit"><img src="images/sibat.PNG" alt="" /></span>
+							<h3>Should I Buy a Ticket</h3>
+							<p>A live webpage that calculates the statistical expected value of a lottery ticket from the two national lottery jackpots.</p>
+							<ul class="actions">
+								<li><a href="https://sibat.bquinn.me" class="button">More</a></li>
+							</ul>
+						</div>
+						<div class="4u 12u$(medium)">
+							<span class="image fit"><img src="images/spr.PNG" alt="" /></span>
+							<h3>SPR Technology</h3>
+							<p>A think tank of engineers who come together to work on new and innovative projects.</p>
+							<ul class="actions">
+								<li><a href="#" class="button" id="disabled">More</a></li>
+							</ul>
+						</div>
+						<div class="4u$ 12u$(medium)">
+							<span class="image fit"><img src="images/Drone.PNG" alt="" /></span>
+							<h3>Drone Vulnerability Research</h3>
+							<p>Worked on a small team, as part of CyberCorps at RIT, to research vulerabilities on popular commercial drones.</p>
+							<ul class="actions">
+								<li><a href="https://www.rit.edu/research/sites/rit.edu.research/files/research-magazines/Research-RIT-Spring-Summer-2016.pdf#page=10" class="button">More</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Four -->
+			<section id="four" class="main style2 special">
+				<div class="container">
+					<header class="major">
+						<h2>Download my Resumé</h2>
+					</header>
+					<p>For more information, download my complete Resumé here.</p>
+					<ul class="actions uniform">
+						<li><a href="/resume.pdf" class="button special">Download</a></li>
+					</ul>
+				</div>
+			</section>
+
+
+		<!-- Footer -->
+			<section id="footer">
+                <header class="major">
+                    <h2>Connect with me</h2>
+                </header>
+                <p>Through my various social media profiles.</p>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/bryan-quinn-473a86116" class="icon alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+					<li><a href="https://blog.bquinn.me/" class="icon alt fa-medium"><span class="label">Medium</span></a></li>
+					<li><a href="https://github.com/bquinn17/" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="mailto:bryan.quinn17@gmail.com" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+					<li><a href="https://plus.google.com/105972589454117600305" class="icon alt fa-google"><span class="label">Twitter</span></a></li>
+					<li><a href="https://twitter.com/SPR_technology" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>Design was based on the photon theme from: <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
