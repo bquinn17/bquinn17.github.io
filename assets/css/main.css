@@ -25,6 +25,7 @@ ul.topnav {
 	list-style-type: none;
 	margin: 0 auto;
 	padding: 0;
+	text-align: center;
 	overflow: hidden;
 	background-color: rgba(55,58,60,0.975);
 	-webkit-align-items: center; /* Safari 7.0+ */
@@ -33,11 +34,9 @@ ul.topnav {
 	/*opacity: 0.7;*/
 }
 
-/* Float the list items side by side */
+/* Display the list items inline for centered layout */
 ul.topnav li {
-	float: left;
-	/*display:inline-block;*/
-	/*list-style-type: none;*/
+	display: inline-block;
 }
 
 /* Style the links inside the list items */
