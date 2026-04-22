@@ -20,7 +20,6 @@
 	</head>
 	<body>
     <div class="nav"><ul class="topnav" id="myTopnav">
-        <li><a href="#header" class="scrolly">Home</a></li>
         <li><a href="#one" class="scrolly">Introduction</a></li>
         <li><a href="#two" class="scrolly">Employment</a></li>
         <li><a href="#three" class="scrolly">Publications</a></li>
@@ -63,7 +62,7 @@
 							<header class="major">
 								<h2>I'm a software engineer based in Boston, MA</h2>
 							</header>
-							<p>I have 6 years of combined experience building distributed systems, application security, and machine learning infrastructure. I hold an MS in Computing Security and a BS in Software Engineering from the Rochester Institute of Technology.</p>
+							<p>I have <span id="yearsExp">6</span> years of combined experience building distributed systems, secure applications, and machine learning infrastructure. I hold an MS in Computing Security and a BS in Software Engineering from the Rochester Institute of Technology.</p>
 						</div>
 						<div class="6u$ 12u$(medium) important(medium)">
 							<span class="image profile"><img src="images/headshot.jfif" alt="" /></span>
@@ -228,6 +227,21 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script>
+				(function() {
+					const startDate = new Date('2020-01-06');
+					const today = new Date();
+					let years = today.getFullYear() - startDate.getFullYear();
+					let months = today.getMonth() - startDate.getMonth();
+					if (months < 0) {
+						years--;
+						months += 12;
+					}
+					const decimalYears = years + (months / 12);
+					const roundedYears = Math.round(decimalYears * 2) / 2;
+					document.getElementById('yearsExp').textContent = roundedYears;
+				})();
+			</script>
 
 	</body>
 </html>
