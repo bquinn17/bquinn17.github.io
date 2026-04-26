@@ -33,7 +33,7 @@ function WeddingSection() {
           </div>
         </div>
 
-        <img src="/assets/images/9c608a_47d2926591aa4e8da5ff30adbc4303a8~mv2.png" alt="Decorative element"
+        <img src="assets/images/9c608a_47d2926591aa4e8da5ff30adbc4303a8~mv2.png" alt="Decorative element"
              className="heart-icon zoom-in"/>
 
         <div className="welcome-party-note fade-in-up">

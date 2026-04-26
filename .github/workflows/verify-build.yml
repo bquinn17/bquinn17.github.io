@@ -1,0 +1,36 @@
+name: Verify wedding_site build is up to date
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  verify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: './wedding_app/package-lock.json'
+
+      - name: Install dependencies
+        working-directory: ./wedding_app
+        run: npm ci
+
+      - name: Build
+        working-directory: ./wedding_app
+        run: npm run build
+
+      - name: Check for uncommitted build changes
+        run: |
+          if ! git diff --exit-code -- wedding_site; then
+            echo "::error::wedding_site/ is out of sync with wedding_app/ source. Run 'npm run build' in wedding_app/ and commit the result."
+            exit 1
+          fi

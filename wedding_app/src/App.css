@@ -247,7 +247,7 @@
   position: relative;
   background:
     linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
-    url('/assets/images/pattern-light.png');
+    url('images/pattern-light.png');
   background-size: auto, 200px 200px;
   background-position: center, center;
   background-repeat: no-repeat, repeat;
@@ -264,7 +264,7 @@
 /* Snow Farm Parallax Section */
 .snow-farm-parallax {
   height: 400px;
-  background-image: url('/assets/images/snow_farm.jpg');
+  background-image: url('images/snow_farm.jpg');
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;

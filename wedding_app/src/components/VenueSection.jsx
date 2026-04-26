@@ -18,12 +18,12 @@ function VenueSection() {
           much as we do.
         </p>
 
-        <img src="/assets/images/9c608a_4f46c80b727741b0ab89c97f4a108f02~mv2.png" alt="Snow Farm Logo"
+        <img src="assets/images/9c608a_4f46c80b727741b0ab89c97f4a108f02~mv2.png" alt="Snow Farm Logo"
              className="venue-logo zoom-in"/>
       </div>
 
       <div className="selfie-section">
-        <img src="/assets/images/selfie.jpg" alt="Bryan and Leah" className="selfie-image fade-in-up"/>
+        <img src="assets/images/selfie.jpg" alt="Bryan and Leah" className="selfie-image fade-in-up"/>
       </div>
     </section>
   );
