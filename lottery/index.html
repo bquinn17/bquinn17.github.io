@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+        <title>Lottery Ticket Expected Value</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="main.css">
+        <script src="src/CalculateValue.js"></script>
+    </head>
+
+    <body>
+        <header class="hero">
+            <h1>How much is your lottery ticket really worth?</h1>
+        </header>
+
+        <main class="cards">
+            <article class="card pb">
+                <div class="logo"><img src="images/PBLogo.png" alt="Powerball logo"></div>
+                <h2><a href="https://www.powerball.com/">Powerball</a></h2>
+
+                <div class="stats">
+                    <div class="stat profit">
+                        <div class="stat-label">Expected Profit</div>
+                        <div class="stat-value" id="p_value">$</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Cost Per Ticket</div>
+                        <div class="stat-value" id="p_price">$</div>
+                    </div>
+                </div>
+
+                <div class="jackpot-block">
+                    <div class="jackpot-label">Current Estimated Jackpot</div>
+                    <div class="jackpot-value" id="p_jackpot">$</div>
+                </div>
+
+                <details class="drawing-block">
+                    <summary class="drawing-summary">Drawing Schedule</summary>
+                    <div class="drawing-rows">
+                        <div class="schedule-row">
+                            <span class="schedule-label">Drawing Days</span>
+                            <span class="schedule-value">Monday, Wednesday &amp; Saturday</span>
+                        </div>
+                        <div class="schedule-row">
+                            <span class="schedule-label">Drawing Time</span>
+                            <span class="schedule-value">10:59 PM ET</span>
+                        </div>
+                        <div class="schedule-row">
+                            <span class="schedule-label">Ticket Cutoff</span>
+                            <span class="schedule-value">~10:00 PM ET (varies by state)</span>
+                        </div>
+                    </div>
+                </details>
+
+            </article>
+
+            <article class="card mm">
+                <div class="logo"><img src="images/MMLogo.png" alt="Mega Millions logo"></div>
+                <h2><a href="http://www.megamillions.com/">Mega Millions</a></h2>
+
+                <div class="stats">
+                    <div class="stat profit">
+                        <div class="stat-label">Expected Profit</div>
+                        <div class="stat-value" id="m_value">$</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Cost Per Ticket</div>
+                        <div class="stat-value" id="m_price">$</div>
+                    </div>
+                </div>
+
+                <div class="jackpot-block">
+                    <div class="jackpot-label">Current Estimated Jackpot</div>
+                    <div class="jackpot-value" id="m_jackpot">$</div>
+                </div>
+
+                <details class="drawing-block">
+                    <summary class="drawing-summary">Drawing Schedule</summary>
+                    <div class="drawing-rows">
+                        <div class="schedule-row">
+                            <span class="schedule-label">Drawing Days</span>
+                            <span class="schedule-value">Tuesday &amp; Friday</span>
+                        </div>
+                        <div class="schedule-row">
+                            <span class="schedule-label">Drawing Time</span>
+                            <span class="schedule-value">11:00 PM ET</span>
+                        </div>
+                        <div class="schedule-row">
+                            <span class="schedule-label">Ticket Cutoff</span>
+                            <span class="schedule-value">~10:45 PM ET (varies by state)</span>
+                        </div>
+                    </div>
+                </details>
+
+            </article>
+        </main>
+
+        <section class="explainer">
+            <details>
+                <summary>
+                    <span class="summary-text">How is this calculated?</span>
+                    <span class="chevron" aria-hidden="true"></span>
+                </summary>
+
+                <div class="explainer-body">
+                    <p>
+                        Expected value (EV) is the average profit you'd make per ticket if
+                        you played the same drawing infinitely many times. It's the sum of
+                        every possible payout, weighted by how likely it is, minus what
+                        the ticket costs. The formula:
+                    </p>
+
+                    <pre class="formula">EV  =  jackpot &times; P(jackpot)
+     +  &Sigma; ( prize<sub>tier</sub> &times; P(tier) )   &mdash; over every non-jackpot prize tier
+     &minus;  ticket price</pre>
+
+                    <p>
+                        The jackpot term grows with the prize, the middle term is a fixed
+                        contribution from all the smaller prizes, and the last term is what
+                        you always pay. EV turns positive only when the jackpot gets large
+                        enough to outweigh the ticket cost.
+                    </p>
+
+                    <h3>The fixed pieces</h3>
+                    <p>
+                        Every drawing uses the same odds and the same non-jackpot prize
+                        amounts, so the middle term is a constant per game. Computed from
+                        the official prize tables:
+                    </p>
+
+                    <div class="explainer-grid">
+                        <div class="explainer-card">
+                            <h4>Powerball <span class="muted">($2 ticket)</span></h4>
+                            <p class="muted">Jackpot odds: 1 in 292,201,338</p>
+                            <div class="table-scroll">
+                                <table>
+                                    <thead>
+                                        <tr><th>Match</th><th>Prize</th><th>Odds (1 in)</th><th>EV contribution</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>5 white</td><td>$1,000,000</td><td>11,688,053</td><td>$0.0856</td></tr>
+                                        <tr><td>4 white + PB</td><td>$50,000</td><td>913,129</td><td>$0.0548</td></tr>
+                                        <tr><td>4 white</td><td>$100</td><td>36,525</td><td>$0.0027</td></tr>
+                                        <tr><td>3 white + PB</td><td>$100</td><td>14,494</td><td>$0.0069</td></tr>
+                                        <tr><td>3 white</td><td>$7</td><td>580</td><td>$0.0121</td></tr>
+                                        <tr><td>2 white + PB</td><td>$7</td><td>701</td><td>$0.0100</td></tr>
+                                        <tr><td>1 white + PB</td><td>$4</td><td>92</td><td>$0.0435</td></tr>
+                                        <tr><td>PB only</td><td>$4</td><td>38</td><td>$0.1044</td></tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr><td colspan="3">Sum of non-jackpot EV</td><td>$0.32</td></tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="explainer-card">
+                            <h4>Mega Millions <span class="muted">($5 ticket)</span></h4>
+                            <p class="muted">Jackpot odds: 1 in 290,472,336</p>
+                            <p class="muted small">
+                                Every ticket gets a random multiplier (2X, 3X, 4X, 5X, or 10X)
+                                that scales every non-jackpot prize. Expected multiplier &asymp; 3.00,
+                                already baked into the prizes below.
+                            </p>
+                            <div class="table-scroll">
+                                <table>
+                                    <thead>
+                                        <tr><th>Match</th><th>Avg. prize</th><th>Odds (1 in)</th><th>EV contribution</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>5 white</td><td>$3,001,467</td><td>12,629,232</td><td>$0.2377</td></tr>
+                                        <tr><td>4 white + MB</td><td>$30,015</td><td>893,761</td><td>$0.0336</td></tr>
+                                        <tr><td>4 white</td><td>$1,501</td><td>38,859</td><td>$0.0386</td></tr>
+                                        <tr><td>3 white + MB</td><td>$600</td><td>13,965</td><td>$0.0430</td></tr>
+                                        <tr><td>3 white</td><td>$30</td><td>607</td><td>$0.0494</td></tr>
+                                        <tr><td>2 white + MB</td><td>$30</td><td>665</td><td>$0.0451</td></tr>
+                                        <tr><td>1 white + MB</td><td>$21</td><td>86</td><td>$0.2443</td></tr>
+                                        <tr><td>MB only</td><td>$15</td><td>35</td><td>$0.4288</td></tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr><td colspan="3">Sum of non-jackpot EV</td><td>$1.12</td></tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Putting it together</h3>
+                    <p>
+                        Plug the current jackpot in. For Powerball, EV = jackpot &divide; 292,201,338
+                        + $0.32 &minus; $2. For Mega Millions, EV = jackpot &divide; 290,472,336
+                        + $1.12 &minus; $5. The break-even jackpot &mdash; where EV crosses zero
+                        before any other adjustments &mdash; is roughly $491M for Powerball and
+                        $1.13B for Mega Millions.
+                    </p>
+
+                    <h3>What this number doesn't include</h3>
+                    <ul>
+                        <li><strong>Taxes.</strong> Federal withholding alone is ~37% on large prizes, plus state tax in most places. Real after-tax EV is materially lower.</li>
+                        <li><strong>Lump sum vs. annuity.</strong> Advertised jackpots are the 30-year annuity. The cash option is typically about half.</li>
+                        <li><strong>Splitting the jackpot.</strong> When jackpots get huge, more tickets get sold, which raises the chance of multiple winners splitting the pot.</li>
+                    </ul>
+                    <p class="muted small">
+                        Each of these pushes the true EV down. Treat the number on this page
+                        as a generous upper bound.
+                    </p>
+                </div>
+            </details>
+        </section>
+
+        <footer class="page-footer">
+            <p class="lede">
+                A simple, honest breakdown of what you should expect to profit (or lose)
+                on a Powerball or Mega Millions ticket &mdash; based on the current jackpot.
+            </p>
+            <div class="more-info">
+                <p>Inspired by
+                    <a href="http://www.businessinsider.com/heres-when-math-says-you-should-start-to-care-about-powerball-2013-9">this article</a>.
+                </p>
+                <p class="fine-print">The article uses older Powerball rules, but the concept still applies.</p>
+                <p>Curious about the math? Check the source on
+                    <a href="https://github.com/bquinn17/LotteryTicket">GitHub</a>.
+                </p>
+            </div>
+        </footer>
+
+        <script>
+            function initializeValues(data) {
+                calculateValue("m", data.megamillions, 1);
+                calculateValue("p", data.powerball, 1);
+            }
+
+            fetch("data/current_jackpots.json")
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error("Unable to load jackpot values.");
+                    }
+                    return response.json();
+                })
+                .then(function(data) {
+                    initializeValues(data);
+                })
+                .catch(function() {
+                    initializeValues({ megamillions: 0.0, powerball: 0.0 });
+                });
+
+            document.querySelectorAll(".drawing-block").forEach(function(details) {
+                var rows = details.querySelector(".drawing-rows");
+                rows.style.maxHeight = "0px";
+
+                details.querySelector(".drawing-summary").addEventListener("click", function(e) {
+                    e.preventDefault();
+                    if (details.open) {
+                        rows.style.maxHeight = rows.scrollHeight + "px";
+                        rows.getBoundingClientRect();
+                        rows.style.maxHeight = "0px";
+                        rows.addEventListener("transitionend", function onEnd() {
+                            rows.removeEventListener("transitionend", onEnd);
+                            details.removeAttribute("open");
+                        });
+                    } else {
+                        details.setAttribute("open", "");
+                        rows.style.maxHeight = "0px";
+                        rows.getBoundingClientRect();
+                        rows.style.maxHeight = rows.scrollHeight + "px";
+                        rows.addEventListener("transitionend", function onEnd() {
+                            rows.removeEventListener("transitionend", onEnd);
+                            rows.style.maxHeight = "";
+                        });
+                    }
+                });
+            });
+
+        </script>
+    </body>
+</html>
