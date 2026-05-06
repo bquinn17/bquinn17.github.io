@@ -45,7 +45,7 @@ function HeroSection() {
 
           <h3 className="invitation">Joyfully invite you to their wedding celebration</h3>
 
-          <h2 className="wedding-date">September 19, 2026</h2>
+          <h2 className="wedding-date">Month Day, Year</h2>
 
           <div className="venue-info">
             <p>Please join us at</p>

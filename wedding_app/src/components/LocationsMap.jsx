@@ -8,7 +8,7 @@ const getIsTouch = () =>
 export const WEDDING_LOCATION = {
   id: 'wedding',
   name: 'Snow Farm Vineyard & Distillery',
-  subtitle: 'Wedding · Sat Sept 19',
+  subtitle: 'Wedding · Month Day, Year',
   address: '190 W Shore Rd, South Hero, VT 05486',
   coords: [44.626801, -73.333023],
   mapsUrl: 'https://maps.app.goo.gl/95xrgDQWuF7CPMqY8',
@@ -19,7 +19,7 @@ export const WEDDING_LOCATION = {
 export const WELCOME_LOCATION = {
   id: 'welcome',
   name: 'Foam Brewers',
-  subtitle: 'Welcome Party · Fri Sept 18',
+  subtitle: 'Welcome Party · Month Day, Year',
   address: '112 Lake St, Burlington, VT 05401',
   coords: [44.47725, -73.22074],
   mapsUrl: 'https://maps.app.goo.gl/tGgvTSm8D7wynTsC7',

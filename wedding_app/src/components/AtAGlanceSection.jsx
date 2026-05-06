@@ -62,7 +62,7 @@ const TIMELINE = [
   {
     location: WELCOME_LOCATION,
     day: 'Friday',
-    date: 'September 18, 2026',
+    date: 'Month Day, Year',
     time: '5:30 – 8:30 PM',
     heading: 'Welcome Party',
     venue: 'Foam Brewers · Burlington, VT',
@@ -74,7 +74,7 @@ const TIMELINE = [
   {
     location: WEDDING_LOCATION,
     day: 'Saturday',
-    date: 'September 19, 2026',
+    date: 'Month Day, Year',
     time: '4:00 – 10:00 PM',
     heading: 'The Wedding',
     venue: 'Snow Farm Vineyard & Distillery · South Hero, VT',
